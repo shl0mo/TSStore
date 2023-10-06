@@ -1,3 +1,30 @@
+class Product {
+	private model : string = ''
+	private maker : string = ''
+	private price : number = 0
+}
+
+class Cart {
+	private products : Product[] = []
+	private sum_products_prices : number = 0
+
+	constructor (products : Product[]) {
+		this.setProducts(products)
+	}
+
+	public setProducts (products : Product[]) : void {
+		this.products = products
+	}
+	
+	public getProducts () : Product[] {
+		return this.products
+	}
+
+	public getSumProductsPrices () : number {
+		return this.sum_products_prices
+	}
+}
+
 function defineFormFields() {
 	const select_product = this
 	let container_form_inputs : HTMLElement = (<HTMLElement>document.querySelector('#container-form-inputs'))
@@ -87,6 +114,7 @@ const addProduct = () => {
 		alert('Selecione um produto')
 		return
 	}
+
 }
 
 

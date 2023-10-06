@@ -1,4 +1,27 @@
 "use strict";
+class Product {
+    constructor() {
+        this.model = '';
+        this.maker = '';
+        this.price = 0;
+    }
+}
+class Cart {
+    constructor(products) {
+        this.products = [];
+        this.sum_products_prices = 0;
+        this.setProducts(products);
+    }
+    setProducts(products) {
+        this.products = products;
+    }
+    getProducts() {
+        return this.products;
+    }
+    getSumProductsPrices() {
+        return this.sum_products_prices;
+    }
+}
 function defineFormFields() {
     const select_product = this;
     let container_form_inputs = document.querySelector('#container-form-inputs');
