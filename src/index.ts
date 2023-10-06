@@ -223,7 +223,7 @@ const addProduct = () => {
 	const model : string = (<HTMLInputElement>document.querySelector('#input-model')).value
 	const maker : string = (<HTMLInputElement>document.querySelector('#input-maker')).value
 	const price : number = parseFloat((<HTMLInputElement>document.querySelector('#input-price')).value)
-	const input_total_shipping : HTMLInputElement= (<HTMLInputElement>document.querySelector('#input-total-shipping'))
+	const input_shipping_total : HTMLInputElement= (<HTMLInputElement>document.querySelector('#input-shipping-total'))
 	const products = cart.getProducts()
 	if (product === 'TV') {
 		const resolution : number = parseFloat((<HTMLInputElement>document.querySelector('#input-resolution')).value)
@@ -231,19 +231,19 @@ const addProduct = () => {
 		const new_TV : Product = new TV(model, maker, price, resolution, inches)
 		products.push(new_TV)
 		const sum_products_prices = cart.sumProductsPrices()
-		input_total_shipping.value = String(sum_products_prices)
+		input_shipping_total.value = 'R$ ' + String(sum_products_prices)
 	} else if (product === 'Celular') {
 		const memory : number = parseFloat((<HTMLInputElement>document.querySelector('#input-memory')).value)
 		const new_cellphone : Product = new Cellphone(model, maker, price, memory)
 		products.push(new_cellphone)
 		const sum_products_prices = cart.sumProductsPrices()
-		input_total_shipping.value = String(sum_products_prices)
+		input_shipping_total.value = 'R$ ' + String(sum_products_prices)
 	} else if (product === 'Bicicleta') {
 		const rim_size : number = parseFloat((<HTMLInputElement>document.querySelector('#input-rim-size')).value)
 		const new_bike : Product = new Bike(model, maker, price, rim_size)
 		products.push(new_bike)
 		const sum_products_prices = cart.sumProductsPrices()
-		input_total_shipping.value = String(sum_products_prices)
+		input_shipping_total.value = 'R$ ' + String(sum_products_prices)
 	} else if (product === '-- Selecione --') {
 		alert('Selecione um produto')
 		return
