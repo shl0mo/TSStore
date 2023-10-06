@@ -2,7 +2,41 @@ class Product {
 	private model : string = ''
 	private maker : string = ''
 	private price : number = 0
+
+	constructor (model : string, maker : string, price : number) {
+		this.setModel(model)
+		this.setMaker(maker)
+		this.setPrice(price)
+	}
+
+	public setModel (model : string) : void {
+		this.model = model
+	}
+
+	public setMaker (maker : string) : void {
+		this.maker = maker
+	}
+
+	public setPrice (price : number) : void {
+		this.price = price
+	}
+
+	public getModel () : string {
+		return this.model
+	}
+
+	public getMaker () : string {
+		return this.maker
+	}
+
+	public getPrice () : number {
+		return this.price
+	}
 }
+
+/*class TV extends {
+	
+}*/
 
 class Cart {
 	private products : Product[] = []
@@ -109,8 +143,14 @@ function defineFormFields() {
 }
 
 const addProduct = () => {
-	const select_product_value : string = (<HTMLInputElement>document.querySelector('#select-product')).value
-	if (select_product_value === '-- Selecione --') {
+	const product : string = (<HTMLInputElement>document.querySelector('#select-product')).value
+	if (product === 'TV') {
+		
+	} else if (product === 'Celular') {
+		
+	} else if (product === 'Bicicleta') {
+		
+	} else if (product === '-- Selecione --') {
 		alert('Selecione um produto')
 		return
 	}

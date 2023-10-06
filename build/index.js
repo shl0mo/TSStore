@@ -1,11 +1,35 @@
 "use strict";
 class Product {
-    constructor() {
+    constructor(model, maker, price) {
         this.model = '';
         this.maker = '';
         this.price = 0;
+        this.setModel(model);
+        this.setMaker(maker);
+        this.setPrice(price);
+    }
+    setModel(model) {
+        this.model = model;
+    }
+    setMaker(maker) {
+        this.maker = maker;
+    }
+    setPrice(price) {
+        this.price = price;
+    }
+    getModel() {
+        return this.model;
+    }
+    getMaker() {
+        return this.maker;
+    }
+    getPrice() {
+        return this.price;
     }
 }
+/*class TV extends {
+    
+}*/
 class Cart {
     constructor(products) {
         this.products = [];
@@ -108,8 +132,14 @@ function defineFormFields() {
     }
 }
 const addProduct = () => {
-    const select_product_value = document.querySelector('#select-product').value;
-    if (select_product_value === '-- Selecione --') {
+    const product = document.querySelector('#select-product').value;
+    if (product === 'TV') {
+    }
+    else if (product === 'Celular') {
+    }
+    else if (product === 'Bicicleta') {
+    }
+    else if (product === '-- Selecione --') {
         alert('Selecione um produto');
         return;
     }
