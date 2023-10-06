@@ -27,9 +27,27 @@ class Product {
         return this.price;
     }
 }
-/*class TV extends {
-    
-}*/
+class TV extends Product {
+    constructor(model, maker, price, resolution, inches) {
+        super(model, maker, price);
+        this.resolution = 0;
+        this.inches = 0;
+        this.setResolution(resolution);
+        this.setInches(inches);
+    }
+    setResolution(resolution) {
+        this.resolution = resolution;
+    }
+    setInches(inches) {
+        this.inches = inches;
+    }
+    getResolution() {
+        return this.resolution;
+    }
+    getInches() {
+        return this.inches;
+    }
+}
 class Cart {
     constructor(products) {
         this.products = [];

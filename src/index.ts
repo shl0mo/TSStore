@@ -34,9 +34,38 @@ class Product {
 	}
 }
 
-/*class TV extends {
-	
-}*/
+class TV extends Product {
+	private resolution : number = 0
+	private inches : number = 0
+
+	constructor (
+		model : string,
+		maker : string,
+		price : number,
+		resolution : number,
+		inches: number,
+	) {
+		super(model, maker, price)
+		this.setResolution(resolution)
+		this.setInches(inches)
+	}
+
+	public setResolution (resolution : number) : void {
+		this.resolution = resolution
+	}
+
+	public setInches (inches : number) : void {
+		this.inches = inches
+	}
+
+	public getResolution () : number {
+		return this.resolution
+	}
+
+	public getInches () : number {
+		return this.inches
+	}
+}
 
 class Cart {
 	private products : Product[] = []
