@@ -1,9 +1,10 @@
+"use strict";
 function defineFormFields() {
-	const select_product = this
-	let container_form_inputs : HTMLElement = (<HTMLElement>document.querySelector('#container-form-inputs'))
-	const product : string = select_product.value
-	if (product === 'TV') {
-		container_form_inputs.innerHTML = `
+    const select_product = this;
+    let container_form_inputs = document.querySelector('#container-form-inputs');
+    const product = select_product.value;
+    if (product === 'TV') {
+        container_form_inputs.innerHTML = `
 			<div class="form-group mb-3">
 				<label for="input-model">Modelo</label>
 				<input type="text" class="form-control" id="input-model" required>
@@ -25,11 +26,12 @@ function defineFormFields() {
 				<input type="number" class="form-control" id="input-price" required>
 			</div>
 			<button type="button" class="btn btn-dark w-100" id="modal-add-button">Adicionar</button>
-		`
-		const modal_add_button : HTMLElement = (<HTMLInputElement>document.querySelector('#modal-add-button'))
-		modal_add_button.addEventListener('click', addProduct, false)
-	} else if (product === 'Celular') {
-		container_form_inputs.innerHTML = `
+		`;
+        const modal_add_button = document.querySelector('#modal-add-button');
+        modal_add_button.addEventListener('click', addProduct, false);
+    }
+    else if (product === 'Celular') {
+        container_form_inputs.innerHTML = `
 			<div class="form-group mb-3">
 				<label for="input-model">Modelo</label>
 				<input type="text" class="form-control" id="input-model" required>
@@ -51,11 +53,12 @@ function defineFormFields() {
 				<input type="number" class="form-control" id="input-price" required>
 			</div>
 			<button type="button" class="btn btn-dark w-100" id="modal-add-button">Adicionar</button>
-		`
-		const modal_add_button : HTMLElement = (<HTMLInputElement>document.querySelector('#modal-add-button'))
-		modal_add_button.addEventListener('click', addProduct, false)
-	} else if (product === 'Bicicleta') {
-		container_form_inputs.innerHTML = `
+		`;
+        const modal_add_button = document.querySelector('#modal-add-button');
+        modal_add_button.addEventListener('click', addProduct, false);
+    }
+    else if (product === 'Bicicleta') {
+        container_form_inputs.innerHTML = `
 			<div class="form-group mb-3">
 				<label for="input-model">Modelo</label>
 				<input type="text" class="form-control" id="input-model" required>
@@ -73,22 +76,20 @@ function defineFormFields() {
 				<input type="number" class="form-control" id="input-price" required>
 			</div>
 			<button type="button" class="btn btn-dark w-100" id="modal-add-button">Adicionar</button>
-		`
-		const modal_add_button : HTMLElement = (<HTMLInputElement>document.querySelector('#modal-add-button'))
-		modal_add_button.addEventListener('click', addProduct, false)
-	} else if (product === '-- Selecione --') {
-		container_form_inputs.innerHTML = ''	
-	}
+		`;
+        const modal_add_button = document.querySelector('#modal-add-button');
+        modal_add_button.addEventListener('click', addProduct, false);
+    }
+    else if (product === '-- Selecione --') {
+        container_form_inputs.innerHTML = '';
+    }
 }
-
 const addProduct = () => {
-	const select_product_value : string = (<HTMLInputElement>document.querySelector('#select-product')).value
-	if (select_product_value === '-- Selecione --') {
-		alert('Selecione um produto')
-		return
-	}
-}
-
-
-const select_product : HTMLInputElement = (<HTMLInputElement>document.querySelector('#select-product'))
-select_product.addEventListener('change', defineFormFields, false)
+    const select_product_value = document.querySelector('#select-product').value;
+    if (select_product_value === '-- Selecione --') {
+        alert('Selecione um produto');
+        return;
+    }
+};
+const select_product = document.querySelector('#select-product');
+select_product.addEventListener('change', defineFormFields, false);
