@@ -77,7 +77,7 @@ class Cellphone extends Product {
 		memory : number
 	) {
 		super(model, maker, price)
-		this.setMemory(resolution)
+		this.setMemory(memory)
 	}
 
 	public setMemory (memory : number) : void {
@@ -86,6 +86,28 @@ class Cellphone extends Product {
 
 	public getMemory () : number {
 		return this.memory
+	}
+}
+
+class Bike extends Product {
+	private rim_size : number = 0
+
+	constructor (
+		model : string,
+		maker : string,
+		price : number,
+		rim_size : number
+	) {
+		super(model, maker, price)
+		this.setRimSize(rim_size)
+	}
+
+	public setRimSize (rim_size : number) : void {
+		this.rim_size = rim_size
+	}
+
+	public getRimSize () : number {
+		return this.rim_size
 	}
 }
 

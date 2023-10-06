@@ -48,6 +48,32 @@ class TV extends Product {
         return this.inches;
     }
 }
+class Cellphone extends Product {
+    constructor(model, maker, price, memory) {
+        super(model, maker, price);
+        this.memory = 0;
+        this.setMemory(memory);
+    }
+    setMemory(memory) {
+        this.memory = memory;
+    }
+    getMemory() {
+        return this.memory;
+    }
+}
+class Bike extends Product {
+    constructor(model, maker, price, rim_size) {
+        super(model, maker, price);
+        this.rim_size = 0;
+        this.setRimSize(rim_size);
+    }
+    setRimSize(rim_size) {
+        this.rim_size = rim_size;
+    }
+    getRimSize() {
+        return this.rim_size;
+    }
+}
 class Cart {
     constructor(products) {
         this.products = [];
