@@ -113,7 +113,6 @@ class Bike extends Product {
 
 class Cart {
 	private products : Product[] = []
-	private sum_products_prices : number = 0
 
 	constructor (products : Product[]) {
 		this.setProducts(products)
@@ -127,8 +126,12 @@ class Cart {
 		return this.products
 	}
 
-	public getSumProductsPrices () : number {
-		return this.sum_products_prices
+	public sumProductsPrices () : number {
+		let sum_prices : number = 0
+		for (const product of this.getProducts())  {
+			sum_prices = sum_prices + product.getPrice()
+		}
+		return sum_prices
 	}
 }
 
@@ -144,7 +147,7 @@ function defineFormFields() {
 			</div>
 			<div class="form-group mb-3">
 				<label for="input-resolution">Resolução</label>
-				<input type="text" class="form-control" id="input-resolution" required>
+				<input type="number" class="form-control" id="input-resolution" required>
 			</div>
 			<div class="form-group mb-3">
 				<label for="input-inches">Polegadas</label>
@@ -217,12 +220,30 @@ function defineFormFields() {
 
 const addProduct = () => {
 	const product : string = (<HTMLInputElement>document.querySelector('#select-product')).value
+	const model : string = (<HTMLInputElement>document.querySelector('#input-model')).value
+	const maker : string = (<HTMLInputElement>document.querySelector('#input-maker')).value
+	const price : number = parseFloat((<HTMLInputElement>document.querySelector('#input-price')).value)
+	const input_total_shipping : HTMLInputElement= (<HTMLInputElement>document.querySelector('#input-total-shipping'))
+	const products = cart.getProducts()
 	if (product === 'TV') {
-		
+		const resolution : number = parseFloat((<HTMLInputElement>document.querySelector('#input-resolution')).value)
+		const inches : number = parseFloat((<HTMLInputElement>document.querySelector('#input-inches')).value)
+		const new_TV : Product = new TV(model, maker, price, resolution, inches)
+		products.push(new_TV)
+		const sum_products_prices = cart.sumProductsPrices()
+		input_total_shipping.value = String(sum_products_prices)
 	} else if (product === 'Celular') {
-		
+		const memory : number = parseFloat((<HTMLInputElement>document.querySelector('#input-memory')).value)
+		const new_cellphone : Product = new Cellphone(model, maker, price, memory)
+		products.push(new_cellphone)
+		const sum_products_prices = cart.sumProductsPrices()
+		input_total_shipping.value = String(sum_products_prices)
 	} else if (product === 'Bicicleta') {
-		
+		const rim_size : number = parseFloat((<HTMLInputElement>document.querySelector('#input-rim-size')).value)
+		const new_bike : Product = new Bike(model, maker, price, rim_size)
+		products.push(new_bike)
+		const sum_products_prices = cart.sumProductsPrices()
+		input_total_shipping.value = String(sum_products_prices)
 	} else if (product === '-- Selecione --') {
 		alert('Selecione um produto')
 		return
@@ -231,5 +252,7 @@ const addProduct = () => {
 }
 
 
+const products : Product[] = []
+const cart = new Cart(products)
 const select_product : HTMLInputElement = (<HTMLInputElement>document.querySelector('#select-product'))
 select_product.addEventListener('change', defineFormFields, false)
