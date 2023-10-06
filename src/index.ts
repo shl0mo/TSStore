@@ -67,6 +67,28 @@ class TV extends Product {
 	}
 }
 
+class Cellphone extends Product {
+	private memory : number = 0
+
+	constructor (
+		model : string,
+		maker : string,
+		price : number,
+		memory : number
+	) {
+		super(model, maker, price)
+		this.setMemory(resolution)
+	}
+
+	public setMemory (memory : number) : void {
+		this.memory = memory
+	}
+
+	public getMemory () : number {
+		return this.memory
+	}
+}
+
 class Cart {
 	private products : Product[] = []
 	private sum_products_prices : number = 0
